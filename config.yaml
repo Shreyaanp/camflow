@@ -1,0 +1,32 @@
+sensor:
+  threshold_mm: 500
+  arm_delay_ms: 500
+  inactivity_timeout_ms: 6000
+  tail_hold_ms: 10000
+  min_quiet_ms: 3000
+
+capture:
+  fps: 15
+  width: 848
+  height: 480
+  fragment_sec: 2
+  analysis_window_sec: 20
+  max_session_min: 5
+  bitrate_kbps: 2500
+
+queue:
+  host: 127.0.0.1
+  port: 6379
+  stream_fragments: video:fragments
+  stream_tasks: ml:tasks
+  group_fragments: g1
+  group_tasks: g1
+
+paths:
+  fragments_root: /dev/shm/frags
+  archive_root: /var/videos
+
+devices:
+  rgb: /dev/video0
+  ir1: /dev/video1
+  ir2: /dev/video2
