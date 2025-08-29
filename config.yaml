@@ -1,4 +1,5 @@
 sensor:
+  i2c_bus: 1
   threshold_mm: 500
   arm_delay_ms: 500
   inactivity_timeout_ms: 6000
