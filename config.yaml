@@ -19,8 +19,10 @@ queue:
   port: 6379
   stream_fragments: video:fragments
   stream_tasks: ml:tasks
+  stream_controls: video:controls
   group_fragments: g1
   group_tasks: g1
+  group_controls: g1
 
 paths:
   fragments_root: /dev/shm/frags
