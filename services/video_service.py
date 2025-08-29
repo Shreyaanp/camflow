@@ -20,11 +20,9 @@ def ffmpeg_hls(outdir, w, h, fps, pix_fmt, bitrate_kbps, frag_sec):
         "ffmpeg","-nostdin","-hide_banner","-loglevel","error",
         "-f","rawvideo","-pix_fmt",pix_fmt,"-s",f"{w}x{h}","-r",str(fps),"-i","-",
         "-an","-c:v","h264_v4l2m2m","-b:v",f"{bitrate_kbps}k","-g",str(int(fps*2)),
-        "-f","hls","-hls_time",str(frag_sec)," -hls_list_size","0","-hls_flags","independent_segments",
+        "-f","hls","-hls_time",str(frag_sec),"-hls_list_size","0","-hls_flags","independent_segments",
         plist
     ]
-    # fix: remove stray space in "-hls_list_size"
-    cmd[14] = "-hls_list_size"
     return subprocess.Popen(cmd, stdin=subprocess.PIPE)
 
 def watcher_enqueue(outdir, sid, stream, stop_evt):
